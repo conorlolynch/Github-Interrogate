@@ -1,7 +1,5 @@
 from github import Github
 
-#73d6dfc47875e717f2b352eafd3a1102f63571b6
-
 def getUserInfo(user):
     return user.login, user.id, user.name, user.location, user.bio, user.public_repos, user.followers, user.following
 
