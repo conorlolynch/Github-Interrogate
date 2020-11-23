@@ -19,8 +19,7 @@ PyGithub==1.53
 If a valid access token is provided by the user then the API can successfully connect to the users account and return information about their account such as user details and repository information.
 
 ### Demonstration
-
-![alt text](images/usage-git-interrogate.png)
+![alt text](images/usage-git-interrogate.PNG)
 
 ### Additional Information
 
