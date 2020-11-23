@@ -1,5 +1,6 @@
 from github import Github
 
+#73d6dfc47875e717f2b352eafd3a1102f63571b6
 
 def getUserInfo(user):
     return user.login, user.id, user.name, user.location, user.bio, user.public_repos, user.followers, user.following
@@ -40,6 +41,10 @@ def printRepoInfo(repo, inline):
     print("")
 
 
+def printCommitInfo(repo):
+    pass
+
+
 
 def main():
     # Take input from the user
@@ -66,10 +71,30 @@ def main():
             printUserInfo(pers, True)
 
 
-        print("\n----------- Repositories-------------")
+        print("\n----------- Repositories -------------")
         for repo in user.get_repos():
-            #print(getRepoInfo(repo))
+            count = 0
             printRepoInfo(repo, False)
+
+            # Find the language used in each repository
+            print(repo.languages_url)
+            # for lang,x in repo.get_languages():
+            #     print(lang,x)
+
+            # Find the number of commits made by this user in each repo
+            for commit in repo.get_commits():
+                # print(commit.author.login)    # conorlolynch
+                if commit.author.login == user.login:
+                    count += 1
+                    # print(commit.sha)
+
+            print("Number of commits: "+str(count))
+
+            print("\n")
+
+
+        print("------------- Languages ---------------")
+
 
     except Exception as e:
         print(e)
